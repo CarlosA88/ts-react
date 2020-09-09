@@ -5,6 +5,7 @@ interface props {
   counter: number;
 }
 const Counter: React.FC<props> = (props) => {
+    
   return (
     <div>
       <button type="submit" onClick={props.handleSubmit}>
