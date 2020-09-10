@@ -1,9 +1,17 @@
-import React from "react";
-interface props {
-  text: string;
+import React, { useState } from "react";
+import messageHoc from "./Hoc";
+
+interface IUserMessage {
+  name: string;
+  message: string;
 }
-const TextField: React.FC<props> = () => {
-  return <div>Text filed</div>;
+
+const TextField = (props: IUserMessage): any => {
+  return (
+    <div>
+      {props.name},{props.message}
+    </div>
+  );
 };
 
-export default TextField;
+export default messageHoc(TextField);

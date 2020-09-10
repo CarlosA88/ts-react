@@ -6,7 +6,7 @@ import Counter from "./Counter";
 import Display from "./Display";
 
 function App() {
-  const [counter, setCounter] = useState(50);
+  const [counter, setCounter] = useState<number>(50);
   const handleSubmit = () => setCounter(counter + 1);
 
   return (
@@ -16,6 +16,7 @@ function App() {
 
         <Counter handleSubmit={handleSubmit} counter={counter} />
         <Display message={counter} />
+        <TextField />
       </header>
     </div>
   );

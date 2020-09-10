@@ -1,9 +1,9 @@
 import React from "react";
-interface props {
+interface INum {
   message: number;
 }
 
-const Display: React.FC<props> = (props) => {
+const Display = (props: INum) => {
   return <div>{props.message}</div>;
 };
 
