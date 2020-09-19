@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import TextField from "./TextField";
-import Counter from "./Counter";
-import Display from "./Display";
+import TodoList from "./components/TodoList";
+import NewTodo from "./components/NewTodo";
+import { ITodo } from "./interfaces/ITodoList";
 
-function App() {
-  const [counter, setCounter] = useState(50);
-  const handleSubmit = () => setCounter(counter + 1);
+import { Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import SignIn from "./components/SignIn";
+import PageNotFound from "./components/PageNotFound";
+import Navbar from "./components/common/Navbar";
+import AddNotes from "./components/addnotes/Index";
+import Index from "./components/addnotes/Index";
 
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <Navbar />
 
-        <Counter handleSubmit={handleSubmit} counter={counter} />
-        <Display message={counter} />
-      </header>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/signin" component={SignIn} />
+        {/* <Route path="/addnotes" component={AddNotes} /> */}
+
+        <Route component={PageNotFound} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
