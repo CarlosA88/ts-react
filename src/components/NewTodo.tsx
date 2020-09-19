@@ -16,7 +16,7 @@ const NewTodo: React.FC<props> = (props) => {
     <div>
       <form action="" onClick={handleSubmit}>
         <div>
-          <input type="text" id="todo-text" ref={refInputText} />
+          <input type="number" id="todo-text" ref={refInputText} />
         </div>
         <button type="submit">Send</button>
       </form>

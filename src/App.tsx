@@ -5,30 +5,28 @@ import TodoList from "./components/TodoList";
 import NewTodo from "./components/NewTodo";
 import { ITodo } from "./interfaces/ITodoList";
 
-function App() {
-  const [todos, setTodos] = useState<ITodo[]>([]);
+import { Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import SignIn from "./components/SignIn";
+import PageNotFound from "./components/PageNotFound";
+import Navbar from "./components/common/Navbar";
+import AddNotes from "./components/addnotes/Index";
+import Index from "./components/addnotes/Index";
 
-  const todoAddHandler = (text: string) => {
-    setTodos((prevTodos) => [
-      ...prevTodos,
-      { id: Math.random().toString(), text: text },
-    ]);
-  };
-
-  const todoDeleteHandler = (todoId: string) => {
-    setTodos((prevTodos) => {
-      return prevTodos.filter((todo) => todo.id !== todoId);
-    });
-  };
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <NewTodo addTodo={todoAddHandler} />
-        <TodoList items={todos} onDeleteTodo={todoDeleteHandler} />
-      </header>
+    <div>
+      <Navbar />
+
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/signin" component={SignIn} />
+        {/* <Route path="/addnotes" component={AddNotes} /> */}
+
+        <Route component={PageNotFound} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
